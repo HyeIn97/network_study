@@ -1,7 +1,7 @@
 package com.example.data.di
 
-import com.example.data.remote.network.NetWorkInterceptor
 import com.example.data.remote.config.NetworkConfig
+import com.example.data.remote.network.NetWorkInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,6 +14,10 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+    @Provides
+    @Singleton
+    fun provideNetworkConfig() = NetworkConfig
+
     @Provides
     @Singleton
     fun providerInterceptor(networkConfig: NetworkConfig) = NetWorkInterceptor(networkConfig)

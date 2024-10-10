@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">presentation</string>
+    <string name="search_tab">검색</string>
+    <string name="like_tab">좋아요</string>
+
+    <string name="search_hint">검색어를 입력해주세요.</string>
+    <string name="search_button">검색</string>
 </resources>
