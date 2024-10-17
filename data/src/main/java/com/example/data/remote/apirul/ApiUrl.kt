@@ -1,5 +1,5 @@
 package com.example.data.remote.apirul
 
-class ApiUrl {
-    val book = "/book"
+object ApiUrl {
+    const val book = "v1/search/book.json"
 }

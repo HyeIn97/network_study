@@ -1,5 +1,6 @@
 package com.example.data.di
 
+import com.example.data.api.SearchApi
 import com.example.data.remote.config.NetworkConfig
 import com.example.data.remote.network.NetWorkInterceptor
 import dagger.Module
@@ -30,4 +31,8 @@ object NetworkModule {
     @Singleton
     fun providerNetwork(okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder().baseUrl(NetworkConfig.BaseUrl).client(okHttpClient).addConverterFactory(GsonConverterFactory.create()).build()
+
+    @Provides
+    @Singleton
+    fun providerSearchApi(retrofit: Retrofit): SearchApi = retrofit.create(SearchApi::class.java)
 }

@@ -49,6 +49,7 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":presentation"))
 
+    // Hilt
     implementation(Dependency.Libraries.HILT)
     kapt(Dependency.Libraries.HILT_COMPILER)
 }

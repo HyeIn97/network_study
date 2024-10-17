@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">presentation</string>
+
+    <string name="expectation">오류가 발생했어요.\n잠시 후 다시 시도해 주세요.</string>
+
     <string name="search_tab">검색</string>
     <string name="like_tab">좋아요</string>
 
     <string name="search_hint">검색어를 입력해주세요.</string>
     <string name="search_button">검색</string>
+    <string name="search_empty">검색 내역이 없습니다.</string>
+    <string name="search_count">총 개수</string>
 </resources>
