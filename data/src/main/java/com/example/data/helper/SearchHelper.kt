@@ -9,7 +9,7 @@ class SearchHelper {
         val bookList = arrayListOf<SearchModel.BookModel>()
 
         entity.items.map { book ->
-            bookList.add(SearchModel.BookModel(book.title ?: "", book.image ?: "", book.author ?: ""))
+            bookList.add(SearchModel.BookModel(book.title ?: "", book.image ?: "", book.author ?: "", book.link ?: ""))
         }
 
         return SearchModel(entity.total, entity.start, entity.display, bookList)

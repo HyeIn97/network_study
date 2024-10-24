@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.example.presentation" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.presentation">
+
+    <application>
+        <activity
+            android:name=".ui.activity.DetailActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

@@ -1,5 +1,6 @@
-package com.example.presentation.ui
+package com.example.presentation.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,9 +13,12 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.SearchModel
+import com.example.presentation.model.DetailModel
+import com.example.presentation.R
 import com.example.presentation.adapter.BookAdapter
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentSearchBinding
+import com.example.presentation.util.ItemClickListener
 import com.example.presentation.viewmodel.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -25,7 +29,13 @@ class SearchFragment() : BaseFragment<FragmentSearchBinding>() {
 
     private val bookList = arrayListOf<SearchModel.BookModel>()
     private val bookAdapter by lazy {
-        BookAdapter(bookList)
+        BookAdapter(bookList, object : ItemClickListener<DetailModel> {
+            override fun itemClick(position: Int, data: DetailModel) {
+                super.itemClick(position, data)
+
+                startActivity(Intent(requireContext(), DetailActivity::class.java).apply { putExtra("data", data) })
+            }
+        })
     }
 
     override fun getViewBinding(inflater: LayoutInflater, container: ViewGroup?) = FragmentSearchBinding.inflate(inflater, container, false)
@@ -46,9 +56,9 @@ class SearchFragment() : BaseFragment<FragmentSearchBinding>() {
                         binding.run {
                             if (it.total > 0) {
                                 if (viewModel.initQuery) {
-                                    countText.text = it.total.toString()
+                                    totalText.text = getString(R.string.search_count, it.total)
 
-                                    countLayout.visibility = View.VISIBLE
+                                    totalText.visibility = View.VISIBLE
                                     binding.emptyText.visibility = View.GONE
                                     binding.bookRecycler.visibility = View.VISIBLE
 
@@ -65,7 +75,7 @@ class SearchFragment() : BaseFragment<FragmentSearchBinding>() {
                             } else {
                                 bookList.clear()
 
-                                countLayout.visibility = View.GONE
+                                totalText.visibility = View.GONE
                                 binding.emptyText.visibility = View.VISIBLE
                                 binding.bookRecycler.visibility = View.GONE
                             }

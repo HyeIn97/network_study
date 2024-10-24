@@ -1,8 +1,9 @@
-package com.example.presentation
+package com.example.presentation.ui.activity
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import com.example.presentation.R
 import com.example.presentation.adapter.ViewPagerAdapter
 import com.example.presentation.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator

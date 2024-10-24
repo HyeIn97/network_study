@@ -2,8 +2,8 @@ package com.example.presentation.adapter
 
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.presentation.ui.LikeFragment
-import com.example.presentation.ui.SearchFragment
+import com.example.presentation.ui.fragment.LikeFragment
+import com.example.presentation.ui.activity.SearchFragment
 
 class ViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
     override fun getItemCount() = 2

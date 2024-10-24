@@ -9,6 +9,7 @@ data class SearchModel(
     data class BookModel(
         val title: String,
         val image: String,
-        val author: String
+        val author: String,
+        val link: String
     )
 }

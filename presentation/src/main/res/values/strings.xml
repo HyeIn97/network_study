@@ -9,5 +9,5 @@
     <string name="search_hint">검색어를 입력해주세요.</string>
     <string name="search_button">검색</string>
     <string name="search_empty">검색 내역이 없습니다.</string>
-    <string name="search_count">총 개수</string>
+    <string name="search_count">총 개수 : %d</string>
 </resources>
